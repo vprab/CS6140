@@ -5,5 +5,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Assignment1" />
+    <orderEntry type="module" module-name="multiagent_pa2" />
+    <orderEntry type="module" module-name="search" />
+    <orderEntry type="module" module-name="steam-vp-inventory" />
   </component>
 </module>

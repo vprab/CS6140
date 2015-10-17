@@ -217,11 +217,11 @@ with open("housing_test.txt") as housing_test:
 
 housing_test_data = [[float(x) for x in y] for y in housing_test_data]
 
-housing_decision_tree = create_decision_tree(housing_train_data, range(13), 13, True, max_levels=2)
-# housing_atts = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT', 'MEDV']
-# print_decision_tree(housing_decision_tree, housing_atts)
-print "Housing Training Error: %f" % mean_squared_error(housing_train_data, housing_decision_tree, 13)
-print "Housing Testing Error: %f" % mean_squared_error(housing_test_data, housing_decision_tree, 13)
+# housing_decision_tree = create_decision_tree(housing_train_data, range(13), 13, True, max_levels=2)
+# # housing_atts = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT', 'MEDV']
+# # print_decision_tree(housing_decision_tree, housing_atts)
+# print "Housing Training Error: %f" % mean_squared_error(housing_train_data, housing_decision_tree, 13)
+# print "Housing Testing Error: %f" % mean_squared_error(housing_test_data, housing_decision_tree, 13)
 
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -253,6 +253,32 @@ split_spambase = [spambase_data[i::K] for i in range(K)]
 #
 # print "Spam Average Training Error: %f" % np.mean(training_errors)
 # print "Spam Average Testing Error: %f" % np.mean(testing_errors)
+
+# testing_data = split_spambase[0]
+# training_data = [item for sublist in [x for ind, x in enumerate(split_spambase) if ind != 0] for item in sublist]
+# spam_decision_tree = create_decision_tree(training_data, range(57), 57, False, max_levels=5)
+# truePos = 0
+# falsePos = 0
+# trueNeg = 0
+# falseNeg = 0
+#
+# for record in testing_data:
+#     y = record[57]
+#     p = apply_decision_tree(spam_decision_tree, record)
+#
+#     if y == 1 and p == 1:
+#         truePos += 1
+#     elif y == 0 and p == 1:
+#         falsePos += 1
+#     elif y == 0 and p == 0:
+#         trueNeg += 1
+#     elif y == 1 and p == 0:
+#         falseNeg += 1
+#
+# print "True Positives: %i" % truePos
+# print "False Positives: %i" % falsePos
+# print "True Negatives: %i" % trueNeg
+# print "False Negatives: %i" % falseNeg
 
 # -------------------------------------------------------------------------------------------------------------------- #
 #                                                   PROBLEM 2                                                          #
@@ -313,6 +339,32 @@ def mean_squared_error_lr(data, beta, target_attr):
 #
 # print "Spam Average Training Error LR: %f" % np.mean(training_errors_lr)
 # print "Spam Average Testing Error LR: %f" % np.mean(testing_errors_lr)
+
+# testing_data = split_spambase[0]
+# training_data = [item for sublist in [x for ind, x in enumerate(split_spambase) if ind != 0] for item in sublist]
+# spam_lr = linear_regression(training_data, 57)
+# truePos = 0
+# falsePos = 0
+# trueNeg = 0
+# falseNeg = 0
+#
+# for record in testing_data:
+#     y = record[57]
+#     p = apply_lin_reg(spam_lr, record[:57])
+#
+#     if y == 1 and p >= 0.5:
+#         truePos += 1
+#     elif y == 0 and p >= 0.5:
+#         falsePos += 1
+#     elif y == 0 and p < 0.5:
+#         trueNeg += 1
+#     elif y == 1 and p < 0.5:
+#         falseNeg += 1
+#
+# print "True Positives: %i" % truePos
+# print "False Positives: %i" % falsePos
+# print "True Negatives: %i" % trueNeg
+# print "False Negatives: %i" % falseNeg
 
 # -------------------------------------------------------------------------------------------------------------------- #
 #                                                   PROBLEM 3                                                          #
