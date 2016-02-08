@@ -67,6 +67,3 @@ def kNN(train, rec, k, sim_func=None):
 
     neighbors = sorted(train, key=lambda r: -sim_func(rec, r[:-1]))[0:k]
     return max(set(np.array(neighbors)[:,-1]), key=list(np.array(neighbors)[:,-1]).count)
-
-if __name__ == "__main__":
-    print "Top 5 RELIEF Features Testing Accuracy: 0.843592"

@@ -78,21 +78,20 @@ class KernelPerceptron(object):
         return np.sign(self.project(X))
 
 if __name__ == "__main__":
-    # kp = KernelPerceptron(T=1000)
-    # kp.fit(perceptron_data_norm[:,:-1], perceptron_data_norm[:,-1])
-    # y_predict = kp.predict(perceptron_data_norm[:,:-1])
-    #
-    # print "Dual Perceptron Accuracy: ", (np.sum(np.array(y_predict) == np.array(perceptron_data_norm[:,-1])).astype(np.float)/np.shape(y_predict)[0])
-    print "Dual Perceptron Accuracy: 0.964283"
+    kp = KernelPerceptron(T=1000)
+    kp.fit(perceptron_data_norm[:,:-1], perceptron_data_norm[:,-1])
+    y_predict = kp.predict(perceptron_data_norm[:,:-1])
 
-    # kp = KernelPerceptron(T=1000)
-    # kp.fit(spiral_data[:,:-1], spiral_data[:,-1])
-    # y_predict = kp.predict(spiral_data[:,:-1])
-    #
-    # print "Dual Perceptron Spiral Dot Product Accuracy: ", (np.sum(np.array(y_predict) == np.array(spiral_data[:,-1])).astype(np.float)/np.shape(y_predict)[0])
-    #
-    # kp = KernelPerceptron(T=1000, kernel=gaussian_kernel)
-    # kp.fit(spiral_data[:,:-1], spiral_data[:,-1])
-    # y_predict = kp.predict(spiral_data[:,:-1])
-    #
-    # print "Dual Perceptron Spiral Gaussian Kernel Accuracy: ", (np.sum(np.array(y_predict) == np.array(spiral_data[:,-1])).astype(np.float)/np.shape(y_predict)[0])
+    print "Dual Perceptron Accuracy: ", (np.sum(np.array(y_predict) == np.array(perceptron_data_norm[:,-1])).astype(np.float)/np.shape(y_predict)[0])
+
+    kp = KernelPerceptron(T=1000)
+    kp.fit(spiral_data[:,:-1], spiral_data[:,-1])
+    y_predict = kp.predict(spiral_data[:,:-1])
+
+    print "Dual Perceptron Spiral Dot Product Accuracy: ", (np.sum(np.array(y_predict) == np.array(spiral_data[:,-1])).astype(np.float)/np.shape(y_predict)[0])
+
+    kp = KernelPerceptron(T=1000, kernel=gaussian_kernel)
+    kp.fit(spiral_data[:,:-1], spiral_data[:,-1])
+    y_predict = kp.predict(spiral_data[:,:-1])
+
+    print "Dual Perceptron Spiral Gaussian Kernel Accuracy: ", (np.sum(np.array(y_predict) == np.array(spiral_data[:,-1])).astype(np.float)/np.shape(y_predict)[0])
