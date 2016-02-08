@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="" />
+    <mapping directory="$PROJECT_DIR$/../../CS5100/pacmanCTF" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../steam-vp-inventory" vcs="Git" />
   </component>
 </project>

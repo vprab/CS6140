@@ -24,8 +24,6 @@ def gda(data, target_attr):
     x_zeros = data[[i for i in range(m) if y[i] == 0], :][:, [j for j in range(n) if j != target_attr]]
     x_ones = data[[i for i in range(m) if y[i] == 1], :][:, [j for j in range(n) if j != target_attr]]
 
-    n -= 1
-
     mu_zeros = np.matrix(np.mean(x_zeros, axis=0))
     mu_ones = np.matrix(np.mean(x_ones, axis=0))
     sigma = np.cov(x.T)
@@ -33,8 +31,8 @@ def gda(data, target_attr):
     sigma_norm = np.linalg.norm(sigma)
     sigma_pinv = np.linalg.pinv(sigma)
 
-    model_zeros = lambda x: 1/(((2*np.pi) ** (n/2.0)) * math.sqrt(sigma_norm)) * math.exp(-1/2 * ((x - mu_zeros) * sigma_pinv * (x - mu_zeros).T)[0,0])
-    model_ones = lambda x: 1/(((2*np.pi) ** (n/2.0)) * math.sqrt(sigma_norm)) * math.exp(-1/2 * ((x - mu_ones) * sigma_pinv * (x - mu_ones).T)[0,0])
+    model_zeros = lambda x: 1/(((2*np.pi) ** ((n-1)/2.0)) * math.sqrt(sigma_norm)) * math.exp(-1/2 * ((x - mu_zeros) * sigma_pinv * (x - mu_zeros).T)[0,0])
+    model_ones = lambda x: 1/(((2*np.pi) ** ((n-1)/2.0)) * math.sqrt(sigma_norm)) * math.exp(-1/2 * ((x - mu_ones) * sigma_pinv * (x - mu_ones).T)[0,0])
 
     return model_zeros, model_ones
 

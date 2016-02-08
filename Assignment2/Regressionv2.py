@@ -385,15 +385,15 @@ def mean_squared_error_perceptron(data, percept, target_attr):
 
     #### PERCEPTRON - TESTS ####
 
-# percept = perceptron(perceptron_data_norm, 5, 0.001)
-# print "Normalized with threshold: ", -percept[1:]/percept[0]
-#
-# right = 0
-# for row in perceptron_data_norm:
-#     if np.dot(percept, perceptron_data_norm[i,:5])*perceptron_data_norm[i,5] > 0:
-#         right += 1
-#
-# print "Perceptron Accuracy: %f" % (right/perceptron_data_norm.shape[0])
+percept = perceptron(perceptron_data_norm, 5, 0.001)
+print "Normalized with threshold: ", -percept[1:]/percept[0]
+
+right = 0
+for row in perceptron_data_norm:
+    if np.dot(percept, perceptron_data_norm[i,:5])*perceptron_data_norm[i,5] > 0:
+        right += 1
+
+print "Perceptron Accuracy: %f" % (right/perceptron_data_norm.shape[0])
 
 
 #### NEURAL NETWORK AUTOENCODER ####
@@ -449,10 +449,10 @@ def apply_neural_network(nn, data):
 
     #### NEURAL NETWORK AUTOENCODER - TESTS ####
 
-autoencoder_nn = sigmoid_single_layer_neural_network(3, autoencoder_data, autoencoder_data, 0.1, 20000)
-np.set_printoptions(formatter={'all':lambda x: '{0:.2f}'.format(x)})
-
-for i in range(8):
-    print apply_neural_network(autoencoder_nn, autoencoder_data[i])
-
-np.set_printoptions()
+# autoencoder_nn = sigmoid_single_layer_neural_network(3, autoencoder_data, autoencoder_data, 0.1, 20000)
+# np.set_printoptions(formatter={'all':lambda x: '{0:.2f}'.format(x)})
+#
+# for i in range(8):
+#     print apply_neural_network(autoencoder_nn, autoencoder_data[i])
+#
+# np.set_printoptions()
